@@ -4,6 +4,7 @@ public class VinylPlayerController : MonoBehaviour
 {
     public AudioSource audioSource; // The audio source component
     private GameObject currentVinyl; // The currently placed vinyl
+    public Transform placeHolder;
 
     public void PlaceVinyl(GameObject vinyl)
     {
@@ -13,9 +14,12 @@ public class VinylPlayerController : MonoBehaviour
             return;
         }
 
+
         currentVinyl = vinyl;
-        currentVinyl.transform.position = transform.position;
-        currentVinyl.transform.rotation = transform.rotation;
+        
+        // Set vinyl position and rotation to placeHolder transform and parent it to the vinyl player
+        currentVinyl.transform.position = placeHolder.position;
+        currentVinyl.transform.rotation = placeHolder.rotation;
         currentVinyl.transform.SetParent(transform);
         currentVinyl.GetComponent<Rigidbody>().isKinematic = true;
         currentVinyl.GetComponent<Collider>().enabled = false;
@@ -38,6 +42,7 @@ public class VinylPlayerController : MonoBehaviour
         // Stop audio and animation
         audioSource.Stop();
         currentVinyl.GetComponent<Vinyl>().StopAnimation();
+     
 
         // Reset vinyl state
         currentVinyl.GetComponent<Rigidbody>().isKinematic = false;

@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f45facc01772ba47a9ae17bb7061b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 564282270467201418}
+  character: {fileID: 0}
   groundCheck: {fileID: 1559432492113602410}
   stepAudio: {fileID: 6510483854018238310}
   runningAudio: {fileID: 7887098652713085460}
